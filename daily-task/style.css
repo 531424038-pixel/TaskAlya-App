@@ -1,0 +1,413 @@
+/* ============================================================
+   Daily Task - style.css
+   Mobile-first, bersih & modern, tema biru + mode gelap/terang.
+   ============================================================ */
+
+/* ===== Variabel tema (terang = default) ===== */
+:root {
+  --primary: #2563eb;
+  --primary-strong: #1d4ed8;
+  --primary-soft: #dbeafe;
+  --bg: #f4f7fc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --danger: #ef4444;
+  --success: #16a34a;
+  --shadow: 0 4px 18px rgba(15, 23, 42, 0.07);
+  --radius: 14px;
+}
+
+/* ===== Mode gelap ===== */
+html.dark {
+  --primary: #3b82f6;
+  --primary-strong: #2563eb;
+  --primary-soft: #1e3a5f;
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --border: #334155;
+  --shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Dasar ===== */
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+button { font: inherit; cursor: pointer; }
+input, select { font: inherit; color: inherit; }
+
+/* ===== Header ===== */
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+
+.brand-logo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.brand h1 { margin: 0; font-size: 18px; letter-spacing: -0.02em; }
+.brand-sub { margin: 0; font-size: 12px; color: var(--muted); }
+
+.header-actions { display: flex; gap: 8px; align-items: center; }
+
+/* ===== Tombol ===== */
+.btn {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s, border-color 0.15s, transform 0.05s;
+}
+.btn:active { transform: scale(0.98); }
+
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-strong); }
+
+.btn-ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+.btn-ghost:hover { background: var(--primary-soft); }
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1;
+}
+.icon-btn:hover { background: var(--primary-soft); }
+
+/* ===== Container & kartu ===== */
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+/* ===== Navigasi tanggal ===== */
+.date-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date-display {
+  flex: 1;
+  min-width: 180px;
+  text-align: center;
+}
+
+.date-label { display: block; font-weight: 700; font-size: 15px; }
+
+#date-input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ===== Progres harian ===== */
+.progress-wrap { margin-top: 14px; }
+
+.progress-bar {
+  height: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-strong));
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.progress-text { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+
+/* ===== Toolbar (pencarian + filter + tools) ===== */
+.toolbar { display: flex; flex-direction: column; gap: 12px; }
+
+.search-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  outline: none;
+}
+.search-input:focus { border-color: var(--primary); }
+
+.filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.filter-btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+.filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.tool-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+.toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  user-select: none;
+}
+.toggle-label:hover { border-color: var(--primary); color: var(--primary); }
+.toggle-label input { accent-color: var(--primary); }
+
+/* ===== Daftar tugas ===== */
+.list-section { min-height: 200px; }
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.task-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.task-body { flex: 1; min-width: 0; }
+
+.task-title {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+/* Tugas selesai: dicoret */
+.task-item.done .task-title {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.chip-time { color: var(--primary); border-color: var(--primary-soft); background: var(--primary-soft); }
+
+.chip-priority.p-high   { color: #dc2626; border-color: #fecaca; background: #fee2e2; }
+.chip-priority.p-medium { color: #d97706; border-color: #fde68a; background: #fef3c7; }
+.chip-priority.p-low    { color: #16a34a; border-color: #bbf7d0; background: #dcfce7; }
+
+html.dark .chip-priority.p-high   { background: #451a1a; border-color: #7f1d1d; color: #fca5a5; }
+html.dark .chip-priority.p-medium { background: #451a03; border-color: #78350f; color: #fcd34d; }
+html.dark .chip-priority.p-low    { background: #052e16; border-color: #14532d; color: #86efac; }
+html.dark .chip-time              { background: #1e3a5f; border-color: #274c86; color: #93c5fd; }
+
+.task-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+.task-actions .icon-btn { width: 32px; height: 32px; font-size: 14px; }
+.task-actions .icon-btn.danger:hover { background: #fee2e2; border-color: var(--danger); }
+
+/* ===== Empty state ===== */
+.empty-state {
+  text-align: center;
+  padding: 48px 16px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+.empty-icon { font-size: 44px; display: block; margin-bottom: 8px; }
+.empty-state h2 { margin: 0 0 6px; font-size: 17px; }
+.empty-state p { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* ===== Modal form ===== */
+.modal { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; }
+/* [hidden] harus mengalahkan display:grid di atas (tanpa ini modal selalu tampil) */
+.modal[hidden] { display: none; }
+
+.modal-backdrop { position: absolute; inset: 0; background: rgba(15, 23, 42, 0.55); }
+
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.modal-card h2 { margin: 0 0 16px; font-size: 18px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; flex: 1; min-width: 0; }
+.field label { font-size: 13px; font-weight: 600; color: var(--muted); }
+.req { color: var(--danger); }
+
+.field input,
+.field select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  outline: none;
+}
+.field input:focus,
+.field select:focus { border-color: var(--primary); }
+
+.field-row { display: flex; flex-direction: column; gap: 0; }
+
+.form-error {
+  margin: 0 0 12px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* ===== Toast ===== */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: var(--bg);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 60;
+  box-shadow: var(--shadow);
+  max-width: calc(100% - 32px);
+  text-align: center;
+}
+.toast.error { background: var(--danger); color: #fff; }
+
+/* ===== Responsive: layar sedang ke atas ===== */
+@media (min-width: 640px) {
+  .field-row { flex-direction: row; gap: 12px; }
+  .toolbar { flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .search-input { flex: 1 1 200px; width: auto; }
+  .app-header { padding: 16px 24px; }
+}

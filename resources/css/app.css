@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/* Token tema — dipakai Tailwind untuk menghasilkan utilitas
+   seperti text-biru-700, bg-biru-600, text-danger, dll. */
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-biru-50: #eef4fe;
+    --color-biru-100: #dbe8fb;
+    --color-biru-200: #c7d9f8;
+    --color-biru-300: #a9c6f0;
+    --color-biru-400: #8b9ed8;
+    --color-biru-500: #6b7fb5;
+    --color-biru-600: #4f6494;
+    --color-biru-700: #3b4e76;
+    --color-biru-800: #2c3b59;
+    --color-biru-900: #1e2a40;
+    --color-biru-950: #12192c;
+
+    --color-bg: #ffffff;
+    --color-surface: #f7f9fc;
+    --color-surface-2: #ffffff;
+    --color-text: #1b2432;
+    --color-text-secondary: #5b6c81;
+    --color-border: #e2e8f0;
+    --color-input: #e6ebf2;
+    --color-success: #15803d;
+    --color-success-bg: #f0fdf4;
+    --color-warning: #b45309;
+    --color-danger: #b91c1c;
+    --color-danger-bg: #fef2f2;
+    --color-amber: #b45309;
+    --radius: 14px;
+    --radius-sm: 10px;
+}
+
+/* Variabel CSS biasa: dijamin ikut terkirim ke browser dan dipakai
+   oleh CSS inline di layouts/app.blade.php (body, .card, .btn, ...).
+   Catatan: aturan @theme/@import di dalam <style> Blade TIDAK pernah
+   diproses Tailwind, jadi token harus didefinisikan di file ini. */
+:root {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-biru-50: #eef4fe;
+    --color-biru-100: #dbe8fb;
+    --color-biru-200: #c7d9f8;
+    --color-biru-300: #a9c6f0;
+    --color-biru-400: #8b9ed8;
+    --color-biru-500: #6b7fb5;
+    --color-biru-600: #4f6494;
+    --color-biru-700: #3b4e76;
+    --color-biru-800: #2c3b59;
+    --color-biru-900: #1e2a40;
+    --color-biru-950: #12192c;
+
+    --color-bg: #ffffff;
+    --color-surface: #f7f9fc;
+    --color-surface-2: #ffffff;
+    --color-text: #1b2432;
+    --color-text-secondary: #5b6c81;
+    --color-border: #e2e8f0;
+    --color-input: #e6ebf2;
+    --color-success: #15803d;
+    --color-success-bg: #f0fdf4;
+    --color-warning: #b45309;
+    --color-danger: #b91c1c;
+    --color-danger-bg: #fef2f2;
+    --color-amber: #b45309;
+    --radius: 14px;
+    --radius-sm: 10px;
+}
